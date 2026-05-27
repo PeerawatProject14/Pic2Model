@@ -160,6 +160,17 @@ class Hunyuan3DGenerator(Generator):
         # Optional PBR texture (paint) pass — produces a UV-textured mesh.
         if self.texture:
             try:
+                # Free the shape model first so the paint models fit in RAM/VRAM
+                # (critical on memory-constrained boxes like free Colab ~13GB).
+                import gc
+
+                import torch
+
+                self._pipe = None
+                gc.collect()
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+
                 mesh = self._apply_texture(mesh, image)
                 return mesh
             except Exception as e:  # noqa: BLE001
