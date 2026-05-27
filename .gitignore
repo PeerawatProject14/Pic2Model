@@ -27,3 +27,6 @@ backend/gen_shape_hq.py
 backend/diag_*.py
 backend/test_*.py
 *.glb
+
+# local env (tunnel URL etc.)
+frontend/.env*.local
