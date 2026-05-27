@@ -34,6 +34,10 @@ class Settings(BaseSettings):
     # Device hint for torch backends: "auto" | "cuda" | "cpu"
     device: str = "auto"
 
+    # Generate PBR texture (paint pass). Needs the compiled texgen extensions
+    # (works on Linux/Colab; hard on Windows). Applies to the hunyuan3d backend.
+    texture: bool = False
+
     # Mesh post-processing defaults
     default_target_faces: int = 30000  # decimation target for web/WebGL
 
