@@ -1,0 +1,28 @@
+{
+  "name": "pic2model-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.0.0",
+    "@react-three/fiber": "^9.0.0",
+    "next": "^15.5.18",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "three": "^0.172.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/three": "^0.172.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0"
+  }
+}

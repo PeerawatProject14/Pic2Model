@@ -1,0 +1,29 @@
+# python
+backend/.venv/
+__pycache__/
+*.pyc
+backend/.env
+
+# node / next
+frontend/node_modules/
+frontend/.next/
+frontend/next-env.d.ts
+
+# storage (generated assets + db)
+storage/inputs/*
+storage/models/*
+storage/thumbnails/*
+storage/catalog.db
+!storage/**/.gitkeep
+
+# vendored model repos (re-cloned per environment: local / Colab)
+backend/vendor/
+
+# build logs + one-off scripts/artifacts
+*.log
+backend/build_texgen.bat
+backend/build_diffrender.bat
+backend/gen_shape_hq.py
+backend/diag_*.py
+backend/test_*.py
+*.glb

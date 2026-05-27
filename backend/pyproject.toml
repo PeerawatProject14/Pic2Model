@@ -1,0 +1,38 @@
+[project]
+name = "pic2model-backend"
+version = "0.1.0"
+description = "Image -> part-segmented 3D (GLB) backend for digital-twin assets"
+requires-python = ">=3.11,<3.12"
+
+# Core deps that install cleanly everywhere (no heavy ML / no custom CUDA).
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "python-multipart>=0.0.12",
+    "pydantic>=2.9",
+    "pydantic-settings>=2.6",
+    "pillow>=10.4",
+    "numpy>=1.26,<2.1",
+    "trimesh>=4.5",
+    "pygltflib>=1.16",
+    "shapely>=2.0",
+]
+
+# Heavy / optional model deps. Install explicitly:  uv pip install -e ".[ml]"
+# (downloads torch ~2.5GB and pulls TripoSR / SAM / rembg)
+[project.optional-dependencies]
+ml = [
+    "rembg>=2.0.59",
+    "onnxruntime>=1.19",
+    "torch>=2.4",
+    "torchvision>=0.19",
+    "transformers>=4.44",
+    "einops>=0.8",
+    "omegaconf>=2.3",
+    "huggingface-hub>=0.25",
+    "pymeshlab>=2023.12",
+]
+
+[tool.uv]
+# Keep resolution lenient; ML extras are resolved separately.
+package = false
