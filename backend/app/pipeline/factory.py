@@ -17,7 +17,12 @@ def get_generator() -> Generator:
     if s.generator_backend == "hunyuan3d":
         from .hunyuan3d import Hunyuan3DGenerator
 
-        return Hunyuan3DGenerator(device_hint=s.device, texture=s.texture)
+        return Hunyuan3DGenerator(
+            device_hint=s.device,
+            texture=s.texture,
+            model_path=s.hunyuan_model_path,
+            subfolder=s.hunyuan_subfolder,
+        )
     if s.generator_backend == "triposr":
         from .triposr import TripoSRGenerator
 

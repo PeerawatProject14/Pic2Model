@@ -38,6 +38,11 @@ class Settings(BaseSettings):
     # (works on Linux/Colab; hard on Windows). Applies to the hunyuan3d backend.
     texture: bool = False
 
+    # Hunyuan3D model selection (defaults = the 1.1B standard; switch to mini
+    # to fit free Colab's ~12.7GB RAM).
+    hunyuan_model_path: str = "tencent/Hunyuan3D-2"
+    hunyuan_subfolder: str = "hunyuan3d-dit-v2-0"
+
     # Mesh post-processing defaults
     default_target_faces: int = 30000  # decimation target for web/WebGL
 
